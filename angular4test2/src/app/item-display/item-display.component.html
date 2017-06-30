@@ -1,0 +1,24 @@
+<div class="form-inline">
+    <div class="form-group">
+        <label>City:</label>
+        <select [(ngModel)]="selectedCity.id" class="form-control" (change)="onSelect($event.target.value)">
+    <option value="0">--Select City--</option>
+    <option *ngFor="let cityss of cities" value={{cityss.id}}>{{cityss.name}}</option>
+</select>
+    </div>
+    <div class="form-group">
+        <label>Area:</label>
+        <select [(ngModel)]="selectedArea.id" class="form-control" (change)="onSelectArea($event.target.value)">
+        <option  value="0">--Select Area--</option>
+        <option *ngFor="let areasss of areas " value={{areasss.id}}>{{areasss.name}}</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+        <label>Item</label>
+        <select class="form-control">
+       <option  value="0">--Select Item</option>
+       <option *ngFor="let itemsss of items" value={{itemsss.id}}>{{itemsss.name}}</option>
+   </select>
+    </div>
+</div>
