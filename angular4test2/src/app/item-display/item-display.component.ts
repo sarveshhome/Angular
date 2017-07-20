@@ -28,6 +28,10 @@ export class ItemDisplayComponent  {
     this.items = this._cityService.getItem().filter((item)=> item.areaid == areaid );
   }
 
+ngOnInit()
+{
+
+}
 
 
 }

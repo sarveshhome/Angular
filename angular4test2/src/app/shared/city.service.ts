@@ -6,10 +6,13 @@ import { Area } from './Area';
 import {ItemData} from './ItemData';
 @Injectable()
 export class CityService {
+
+    private headers = new Headers({'Content-Type': 'application/json'});
+    private url = '';
     constructor(private http: Http) { }
     getCityAPI():Observable<City[]>
     {
-      return this.http.get('api/languageAPI').map(res => res.json()).catch(this.handleError);
+      return this.http.get('http://localhost:3120/api/city').map(res => res.json()).catch(this.handleError);
     }
     getCity(){
       return [

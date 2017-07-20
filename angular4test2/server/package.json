@@ -1,0 +1,23 @@
+{
+    "name": "apiserver",
+    "version": "1.0.1",
+    "description": "api server for everything",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "server",
+        "api"
+    ],
+    "author": "sarvesh.mca@hotmail.com",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "express": "^4.15.3",
+        "method-override": "^2.3.9",
+        "mongoose": "^4.11.3",
+        "morgan": "^1.8.2"
+    }
+}
