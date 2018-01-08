@@ -4,12 +4,11 @@ class Student {
   class: string;
   gender: string;
   address: string;
-  constructor(
-  ){
-      this.name = ""
-      this.class = ""
-      this.gender =""
-      this.address = ""
+  constructor( ) {
+      this.name = '';
+      this.class = '';
+      this.gender = '';
+      this.address = '';
   }
 }
 
