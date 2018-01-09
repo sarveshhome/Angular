@@ -1,21 +1,76 @@
-<table class="table">
-    <thead class="h">
-        <tr class="h">
-            <th class="h">Name</th>
-            <th class="h">Class</th>
-            <th class="h">gender</th>
-            <th class="h">address</th>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="todo" *ngFor="let student of studentsList">
-            <ng-container>
-                <td>{{student.name}}</td>
-                <td>{{student.class}}</td>
-                <td>{{student.gender}}</td>
-                <td>{{student.address}}</td>
-            </ng-container>
-        </tr>
-    </tbody>
-</table>
+        <div class="todos" *ngIf="studentsList">
+            <table class="table">
+                <thead class="h">
+                    <tr class="h">
+                        <th class="h">Name</th>
+                        <th class="h">Class</th>
+                        <th class="h">gender</th>
+                        <th class="h">address</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="todo" *ngFor="let student of studentsList">
+                        <ng-container>
+                            <td>{{student.name}}</td>
+                            <td>{{student.class}}</td>
+                            <td>{{student.gender}}</td>
+                            <td>{{student.address}}</td>
+                        </ng-container>
+
+                        <ng-template #editTD>
+                            <td><input type="text" name="name" id="name" (keypress)="submitStudnet($event, student)" [(ngModel)]="student.name" placeholder="Name" class="form-control"></td>
+                            <td><input type="text" name="class" id="class" (keypress)="submitStudnet($event, student)" [(ngModel)]="student.class" placeholder="class" class="form-control"></td>
+                            <td>{{student.gender}}</td>
+                            <td>
+                                <input type="text" name="address" id="address" (keypress)="submitStudnet($event, student)" [(ngModel)]="student.address" placeholder="Address" class="form-control">
+                            </td>
+                        </ng-template>
+
+                        <td class="o">
+                            <button class="btn btn-success" (click)="doneStudent(student)">
+                        <i  class="fa fa-check"></i>
+                      </button>
+                            <button class="btn btn-primary" (click)="editStudent(student)">
+                          <i  class="fa fa-pencil"></i>
+                        </button>
+                            <button class="btn btn-danger" (click)="deleteStudent(student)">
+                          <i  class="fa fa-trash"></i>
+                        </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <form>
+            <div class="form-row">
+
+                <div class="col-md-5">
+                    <input type="text" name="name" id="name" [(ngModel)]="newStudent.name" placeholder="name" class="form-control">
+                </div>
+                <div class="col-md-5">
+                    <input name="class" id="class" [(ngModel)]="newStudent.class" placeholder="class" class="form-control">
+                </div>
+                <div class="col-md-5">
+                    <input name="gender" id="gender" [(ngModel)]="newStudent.gender" placeholder="gender" class="form-control">
+                </div>
+                <div class="col-md-5">
+                    <input name="address" id="address" [(ngModel)]="newStudent.address" placeholder="address" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>

@@ -21,6 +21,7 @@ export class StudentService {
   /*Create Student, takes a Student Object*/
   createStudent(student: Student): Observable<any>{
     /*returns the observable of http post request*/
+    console.log(student);
     return this.http.post(`${this.studentUrl}`, student);
   }
 
@@ -40,9 +41,9 @@ export class StudentService {
     return this.http.put(editUrl, student);
   }
 
-  deleteStudent(id:string):any{
+  deleteStudent(studentid:string):any{
     //Delete the object by the id
-    let deleteUrl = `${this.studentUrl}/${id}`
+    let deleteUrl = `${this.studentUrl}/${studentid}`
     return this.http.delete(deleteUrl)
     .map(res  => {
       return res;
